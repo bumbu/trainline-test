@@ -9,11 +9,11 @@
 ## Done
   * Add Local Node server
   * Add Styles compilation
-
-
-## TODO 
   * Compile JS/JSX
   * Add React 
+
+## TODO 
+  * Implement HTML components
   * Add Redux
   * Load source data 
   * Make items clickable 
