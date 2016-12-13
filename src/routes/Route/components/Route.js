@@ -47,7 +47,7 @@ export class Route extends Component {
 
         <ul className="callings">
           {route.stops && route.stops.map(item => {
-            return <Station item={item} key={item.station} />
+            return <Station item={item} key={item.key} />
           })}
         </ul>
       </div>

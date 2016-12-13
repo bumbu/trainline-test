@@ -4,6 +4,7 @@ import { stationCodeToText, operatorCodeToText } from '../../../utils/codes'
 export const mapRouteState = (state) => {
   let trainFound = false
   let prevItem = null
+  let counter = 0
 
   const stops = state.stops.map((item) => {
     const isOrigin = item.arrival.notApplicable ? true : false
@@ -48,6 +49,7 @@ export const mapRouteState = (state) => {
         : item.arrival.scheduled.scheduledTime
       ),
       station: stationCodeToText(item.location.crs),
+      key: counter++,
     }
 
     return prevItem
