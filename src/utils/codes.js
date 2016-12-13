@@ -1,12 +1,7 @@
+const locationCodes = require('./station_codes.json')
+
 const operatorCodes = {
   SW: 'South West Trains'
-}
-
-const locationCodes = {
-  PMH: 'Porstsmouth Harbour',
-  DKG: 'Dorking',
-  GLD: 'Guildford',
-  WAT: 'London Waterloo',
 }
 
 function codeToText(code, codes) {
@@ -18,4 +13,4 @@ function codeToText(code, codes) {
 }
 
 export const operatorCodeToText = (code) => codeToText(code, operatorCodes)
-export const locationCodeToText = (code) => codeToText(code, locationCodes)
+export const stationCodeToText = (code) => codeToText(code, locationCodes)

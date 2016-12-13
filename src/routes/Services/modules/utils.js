@@ -1,5 +1,5 @@
 import Moment from 'moment'
-import { operatorCodeToText, locationCodeToText } from '../../../utils/codes'
+import { operatorCodeToText, stationCodeToText } from '../../../utils/codes'
 
 export const mapServicesState = (state) => {
   return state.map((item) =>{
@@ -20,7 +20,7 @@ export const mapServicesState = (state) => {
     }
 
     return {
-      destination: locationCodeToText(destination),
+      destination: stationCodeToText(destination),
       due: timeStringToHuman(item.scheduledInfo.scheduledTime),
       expected,
       notOnTime,

@@ -1,5 +1,5 @@
 import Moment from 'moment'
-import { locationCodeToText, operatorCodeToText } from '../../../utils/codes'
+import { stationCodeToText, operatorCodeToText } from '../../../utils/codes'
 
 export const mapRouteState = (state) => {
   let trainFound = false
@@ -42,7 +42,7 @@ export const mapRouteState = (state) => {
       isOrigin,
       isTrainHere,
       scheduledAt: timeStringToHuman(!isDestination ? item.departure.scheduled.scheduledTime : item.arrival.scheduled.scheduledTime),
-      station: locationCodeToText(item.location.crs),
+      station: stationCodeToText(item.location.crs),
     }
 
     return prevItem
@@ -50,8 +50,8 @@ export const mapRouteState = (state) => {
 
   return {
     stops,
-    origin: locationCodeToText(state.serviceOrigins.length && state.serviceOrigins[0]),
-    destination: locationCodeToText(state.serviceDestinations.length && state.serviceDestinations[0]),
+    origin: stationCodeToText(state.serviceOrigins.length && state.serviceOrigins[0]),
+    destination: stationCodeToText(state.serviceDestinations.length && state.serviceDestinations[0]),
     operator: operatorCodeToText(state.serviceOperator),
   }
 }
