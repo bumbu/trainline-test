@@ -28,7 +28,7 @@ gulp.task('dev:styles', function() {
   return gulp.src(PATHS.CSS.SRC + 'main.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(PATHS.CSS.DIST))
     .pipe(livereload());
