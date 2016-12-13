@@ -27,19 +27,8 @@ export const mapRouteState = (state) => {
       }
     }
 
-    let status = 'On time'
-    if (item.departure.realTime && item.departure.scheduled &&
-        item.departure.realTime.realTimeServiceInfo.realTime !== item.departure.scheduled.scheduledTime) {
-      let timeStr = timeStringToHuman(item.departure.realTime.realTimeServiceInfo.realTime)
-      status = `Dept. ${timeStr}`
-    } else if (item.arrival.realTime && item.arrival.scheduled &&
-        item.arrival.realTime.realTimeServiceInfo.realTime !== item.arrival.scheduled.scheduledTime) {
-      let timeStr = timeStringToHuman(item.arrival.realTime.realTimeServiceInfo.realTime)
-      status = `Exp. at ${timeStr}`
-    }
-
     prevItem = {
-      status: status,
+      status: getItemStatus(item),
       hasDeparted,
       isDestination,
       isOrigin,
@@ -61,6 +50,65 @@ export const mapRouteState = (state) => {
     destination: stationCodeToText(state.serviceDestinations.length && state.serviceDestinations[0]),
     operator: operatorCodeToText(state.serviceOperator),
   }
+}
+
+/**
+ * Forrmats items status in a human-readadle form
+ *
+ * @param  {object} item
+ * @return {string}
+ */
+function getItemStatus(item) {
+  let status = 'On time'
+
+  if (ifDepartedNotOnSchedule(item)) {
+    let timeStr = timeStringToHuman(item.departure.realTime.realTimeServiceInfo.realTime)
+    status = `Dept. ${timeStr}`
+  } else if (ifExpectedNotOnSchedule(item)) {
+    let timeStr = timeStringToHuman(item.arrival.realTime.realTimeServiceInfo.realTime)
+    status = `Exp. at ${timeStr}`
+  } else if (ifDelayed(item)) {
+    status = `Delayed`
+  }
+
+  return status
+}
+
+/**
+ * If it departed not on scheduled time
+ *
+ * @param  {object} item
+ * @return {boolean}
+ */
+function ifDepartedNotOnSchedule(item) {
+  return item.departure.realTime &&
+    item.departure.scheduled &&
+    item.departure.realTime.realTimeServiceInfo.realTime &&
+    item.departure.realTime.realTimeServiceInfo.realTime !== item.departure.scheduled.scheduledTime
+}
+
+/**
+ * If it is expected at a different time than scheduled
+ *
+ * @param  {object} item
+ * @return {boolean}
+ */
+function ifExpectedNotOnSchedule(item) {
+  return item.arrival.realTime &&
+    item.arrival.scheduled &&
+    item.arrival.realTime.realTimeServiceInfo.realTime &&
+    item.arrival.realTime.realTimeServiceInfo.realTime !== item.arrival.scheduled.scheduledTime
+}
+
+/**
+ * If it is/was delayed
+ *
+ * @param  {object} item
+ * @return {boolean}
+ */
+function ifDelayed(item) {
+  return (item.departure.realTime && item.departure.realTime.delayReason) ||
+    (item.arrival.realTime && item.arrival.realTime.delayReason)
 }
 
 function timeStringToHuman (str) {
