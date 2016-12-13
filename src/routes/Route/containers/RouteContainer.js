@@ -1,11 +1,8 @@
 import { connect } from 'react-redux'
-// import { increment, doubleAsync } from '../modules/counter'
 
 import Route from '../components/Route'
 
-const mapDispatchToProps = {
-  // viewDetails
-}
+const mapDispatchToProps = {}
 
 const mapStateToProps = (state) => ({
   route : state.route

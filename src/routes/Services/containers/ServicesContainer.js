@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-// import { increment, doubleAsync } from '../modules/counter'
+import { updateServices } from '../modules/services'
 
 import Services from '../components/Services'
 
 const mapDispatchToProps = {
-  // viewDetails
+  updateServices
 }
 
 const mapStateToProps = (state) => ({

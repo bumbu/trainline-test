@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export const Service = (props) => (
   <div className="content-container">
@@ -13,7 +14,7 @@ export const Service = (props) => (
         <span>South West Trains</span>
       </small>
     </h3>
-    <a className="content-container__close material-icons">close</a>
+    <Link to="/services" className="content-container__close material-icons">close</Link>
 
     <ul className="callings">
       <li className="calling calling--departed calling--selected calling--origin">
