@@ -1,14 +1,5 @@
 import Moment from 'moment'
-
-const operatorCodes = {
-  SW: 'South West Trains'
-}
-
-const locationCodes = {
-  PMH: 'Porstsmouth Harbour',
-  DKG: 'Dorking',
-  GLD: 'Guildford',
-}
+import { operatorCodeToText, locationCodeToText } from '../../../utils/codes'
 
 export const mapServicesState = (state) => {
   return state.map((item) =>{
@@ -29,24 +20,16 @@ export const mapServicesState = (state) => {
     }
 
     return {
-      destination: codeToText(destination, locationCodes),
+      destination: locationCodeToText(destination),
       due: timeStringToHuman(item.scheduledInfo.scheduledTime),
       expected,
       notOnTime,
       key: item.serviceIdentifier,
-      operator: codeToText(item.serviceOperator, operatorCodes),
+      operator: operatorCodeToText(item.serviceOperator),
       platform,
       routeUrl: item.callingPatternUrl,
     }
   })
-}
-
-function codeToText(code, codes) {
-  if (code in codes) {
-    return codes[code]
-  } else {
-    return code
-  }
 }
 
 function timeStringToHuman(str) {

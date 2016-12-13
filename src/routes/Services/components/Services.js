@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 import Service from './Service'
 
 export class Services extends Component {
-  static propTypes = {
-  }
+  static propTypes = {}
 
   updateTimerID = null
 
