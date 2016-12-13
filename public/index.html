@@ -3,21 +3,118 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/public/css/main.css">
     <title>Trainline Test</title>
   </head>
   <body>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <div class="service">
+      <ul class="service__list">
+        <li class="service__item">
+          <a class="service__link" href="/live/departures/london-waterloo/aytQeloxYSsvZ2RHSlV5V3QvUm11UT09" rel="nofollow" >
+            <div class="service__station" >
+              <span class="service__time" >18:32</span>
+              <span class="service__destination" >Basingstoke</span>
+              <span class="service__platform" >
+                <abbr title="Platform" >Plat. </abbr>
+                <span >11</span>
+              </span>
+            </div>
+            <div class="service__detail" >
+              <span class="service__operator" >South West Trains</span>
+              <span class="service__expected" >
+                <abbr title="Expected at" >Exp. </abbr>
+                <span >18:39</span>
+              </span>
+            </div>
+            <i class="service__icon material-icons">chevron_right</i>
+          </a>
+        </li>
+        <li class="service__item service__item--selected">
+          <a class="service__link" href="/live/departures/london-waterloo/aytQeloxYSsvZ2RHSlV5V3QvUm11UT09" rel="nofollow" >
+            <div class="service__station" >
+              <span class="service__time" >18:32</span>
+              <span class="service__destination" >Basingstoke</span>
+              <span class="service__platform" >
+                <abbr title="Platform" >Plat. </abbr>
+                <span >11</span>
+              </span>
+            </div>
+            <div class="service__detail" >
+              <span class="service__operator" >South West Trains</span>
+              <span class="service__expected service__expected--ontime" >On time</span>
+            </div>
+            <i class="service__icon material-icons">chevron_right</i>
+          </a>
+        </li>
+      <ul>
+    </div>
 
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
+    <div class="content-container">
+      <i class="content-container__icon material-icons">train</i>
+      <h3 class="content-container__title">
+        <div>London Waterloo</div>
+        <span class="content-container__subtle">to</span>
+        <span>Reading</span>
+        <small class="content-container__operator">
+          <span>Operated by </span>
+          <span>South West Trains</span>
+        </small>
+      </h3>
+      <a class="content-container__close material-icons">close</a>
+
+      <ul class="callings">
+        <li class="calling calling--departed calling--selected calling--origin">
+          <div class="calling__time">19:05</div>
+          <div class="calling__station">
+            <div class="calling__station-name">London Waterloo</div>
+            <div class="calling__station-due">
+              <span>On time</span>
+            </div>
+          </div>
+        </li>
+        <li class="calling calling--departed calling--current">
+          <div class="calling__time">19:09</div>
+          <div class="calling__station">
+            <i class="calling__icon material-icons">train</i>
+            <div class="calling__station-name">Vauxhall</div>
+            <div class="calling__station-due">
+              <span>On time</span>
+            </div>
+          </div>
+        </li>
+        <li class="calling">
+          <div class="calling__time">19:14</div>
+          <div class="calling__station">
+            <div class="calling__station-name">Clapham Junction</div>
+            <div class="calling__station-due">
+              <span>On time</span>
+            </div>
+          </div>
+        </li>
+        <li class="calling">
+          <div class="calling__time">19:14</div>
+          <div class="calling__station">
+            <div class="calling__station-name">Clapham Junction</div>
+            <div class="calling__station-due">
+              <span>On time</span>
+            </div>
+          </div>
+        </li>
+        <li class="calling calling--destination">
+          <div class="calling__time">19:14</div>
+          <div class="calling__station">
+            <div class="calling__station-name">Clapham Junction</div>
+            <div class="calling__station-due">
+              <span>On time</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
     <script src="/public/js/index.js"></script>
   </body>
 </html>

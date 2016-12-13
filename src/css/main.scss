@@ -1,4 +1,6 @@
-body {
-  background: gray;
-  margin: 3px;
-}
+@import 'components/variables';
+@import 'components/layout';
+
+@import 'components/calling-point';
+@import 'components/content-container';
+@import 'components/services';

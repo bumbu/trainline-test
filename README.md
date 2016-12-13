@@ -11,14 +11,15 @@
   * Add Styles compilation
   * Compile JS/JSX
   * Add React 
+  * Implement HTML components
 
 ## TODO 
-  * Implement HTML components
   * Add Redux
   * Load source data 
   * Make items clickable 
   * Automatically refresh statuses
   * Allow closing one item
+  * Add transitions
   * Tests
   * Deploy
 
@@ -27,3 +28,7 @@
   * Add functional/E2E testing
   * Add server-side rendering (Universal app)
   * Make it accessible
+
+## Notes
+  * Fonts don't match as Circular is a proprietary font
+  * Icons don't match 
