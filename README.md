@@ -18,12 +18,12 @@ Based on [React Redux Starter Kit](https://github.com/davezuko/react-redux-start
   * Implement HTML components
   * Add Redux
   * Add linting
-
-### TODO 
   * Load source data 
   * Make items clickable 
   * Automatically refresh statuses
   * Allow closing one item
+
+### TODO 
   * Add transitions
   * Tests
   * Deploy

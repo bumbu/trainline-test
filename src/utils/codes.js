@@ -6,6 +6,7 @@ const locationCodes = {
   PMH: 'Porstsmouth Harbour',
   DKG: 'Dorking',
   GLD: 'Guildford',
+  WAT: 'London Waterloo',
 }
 
 function codeToText(code, codes) {
