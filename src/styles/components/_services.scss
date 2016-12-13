@@ -1,0 +1,109 @@
+.service {
+  font-size: 16px;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    margin: 0;
+  }
+
+  &__item {
+    background-color: $color-inverted;
+    border-bottom: 1px solid $color-gray-ligth;
+    border-radius: 2px;
+    color: $color-text;
+    cursor: pointer;
+    padding: 4px 0;
+    position: relative;
+    transition: background-color .25s linear;
+    vertical-align: top;
+    z-index: 2;
+
+    &:hover,
+    &:focus {
+      background-color: $color-action-background;
+    }
+
+    &--selected {
+      background-color: $color-action-background;
+
+      &:before {
+        background-color: $color-action-accent;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 5px;
+      }
+    }
+  }
+
+  &__link {
+    color: initial;
+    display: block;
+    padding: 10px 35px 10px 15px;
+    text-decoration: none;
+  }
+
+  &__station {
+    padding: 0 60px 0 57px;
+    position: relative;
+  }
+
+  &__time {
+    font-size: 18px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: -.05px;
+    position: absolute;
+    top: 0;
+  }
+
+  &__destination {
+  }
+
+  &__platform {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+
+  &__detail {
+    font-size: 14px;
+    padding: 0 70px 0 57px;
+    position: relative;
+  }
+
+  &__operator {
+    color: $color-text-faded;
+  }
+
+  &__expected {
+    color: $color-danger;
+    font-weight: 700;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &--ontime {
+      color: $color-success;
+      font-weight: 400;
+    }
+  }
+
+  &__icon {
+    color: $color-action-accent;
+    font-size: 28px;
+    font-weight: 700;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+  }
+}
