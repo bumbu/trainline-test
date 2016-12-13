@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 export const HomeView = () => (
   <div>
-    <Link to='/services'>
+    <Link to="/services">
       Go to Services listing
     </Link>
   </div>

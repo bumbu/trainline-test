@@ -27,12 +27,12 @@ export const mapRouteState = (state) => {
     }
 
     let status = 'On time'
-    if (item.departure.realTime && item.departure.scheduled
-        && item.departure.realTime.realTimeServiceInfo.realTime !== item.departure.scheduled.scheduledTime) {
+    if (item.departure.realTime && item.departure.scheduled &&
+        item.departure.realTime.realTimeServiceInfo.realTime !== item.departure.scheduled.scheduledTime) {
       let timeStr = timeStringToHuman(item.departure.realTime.realTimeServiceInfo.realTime)
       status = `Dept. ${timeStr}`
-    } else if (item.arrival.realTime && item.arrival.scheduled
-        && item.arrival.realTime.realTimeServiceInfo.realTime !== item.arrival.scheduled.scheduledTime) {
+    } else if (item.arrival.realTime && item.arrival.scheduled &&
+        item.arrival.realTime.realTimeServiceInfo.realTime !== item.arrival.scheduled.scheduledTime) {
       let timeStr = timeStringToHuman(item.arrival.realTime.realTimeServiceInfo.realTime)
       status = `Exp. at ${timeStr}`
     }
@@ -43,7 +43,10 @@ export const mapRouteState = (state) => {
       isDestination,
       isOrigin,
       isTrainHere,
-      scheduledAt: timeStringToHuman(!isDestination ? item.departure.scheduled.scheduledTime : item.arrival.scheduled.scheduledTime),
+      scheduledAt: timeStringToHuman(!isDestination
+        ? item.departure.scheduled.scheduledTime
+        : item.arrival.scheduled.scheduledTime
+      ),
       station: stationCodeToText(item.location.crs),
     }
 
@@ -58,6 +61,6 @@ export const mapRouteState = (state) => {
   }
 }
 
-function timeStringToHuman(str) {
+function timeStringToHuman (str) {
   return Moment(str).format('HH:mm')
 }

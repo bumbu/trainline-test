@@ -2,9 +2,11 @@ import Moment from 'moment'
 import { operatorCodeToText, stationCodeToText } from '../../../utils/codes'
 
 export const mapServicesState = (state) => {
-  return state.map((item) =>{
+  return state.map((item) => {
     let platform = null
-    if (item.realTimeUpdatesInfo && item.realTimeUpdatesInfo.realTimeServiceInfo && item.realTimeUpdatesInfo.realTimeServiceInfo.realTimePlatform) {
+    if (item.realTimeUpdatesInfo && item.realTimeUpdatesInfo.realTimeServiceInfo &&
+        item.realTimeUpdatesInfo.realTimeServiceInfo.realTimePlatform
+      ) {
       platform = item.realTimeUpdatesInfo.realTimeServiceInfo.realTimePlatform
     }
     let destination = 'unknown'
@@ -13,8 +15,10 @@ export const mapServicesState = (state) => {
     }
     let expected = null
     let notOnTime = false
-    if (item.realTimeUpdatesInfo && item.realTimeUpdatesInfo.realTimeServiceInfo
-        && item.realTimeUpdatesInfo.realTimeServiceInfo.realTime && item.realTimeUpdatesInfo.realTimeServiceInfo.realTime != item.scheduledInfo.scheduledTime) {
+    if (item.realTimeUpdatesInfo && item.realTimeUpdatesInfo.realTimeServiceInfo &&
+        item.realTimeUpdatesInfo.realTimeServiceInfo.realTime &&
+        item.realTimeUpdatesInfo.realTimeServiceInfo.realTime !== item.scheduledInfo.scheduledTime
+      ) {
       expected = timeStringToHuman(item.realTimeUpdatesInfo.realTimeServiceInfo.realTime)
       notOnTime = true
     }
@@ -32,6 +36,6 @@ export const mapServicesState = (state) => {
   })
 }
 
-function timeStringToHuman(str) {
+function timeStringToHuman (str) {
   return Moment(str).format('HH:mm')
 }

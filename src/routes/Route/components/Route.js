@@ -3,17 +3,20 @@ import { Link } from 'react-router'
 import Station from './Station'
 
 export class Route extends Component {
-  static propTypes = {}
+  static propTypes = {
+    updateCurrentRoute: React.PropTypes.func.isRequired,
+    route: React.PropTypes.object.isRequired,
+  }
 
   updateTimerID = null
 
   componentDidMount () {
     // Start timer
     this.checkForUpdates()
-    this.updateTimerID = setInterval(()=> this.checkForUpdates(), 10000)
+    this.updateTimerID = setInterval(() => this.checkForUpdates(), 10000)
   }
 
-  checkForUpdates() {
+  checkForUpdates () {
     if (this.props.updateCurrentRoute) {
       this.props.updateCurrentRoute()
     }
@@ -33,7 +36,7 @@ export class Route extends Component {
         <h3 className="content-container__title">
           <div>{route.origin}</div>
           <span className="content-container__subtle">to</span>
-          <span> </span>
+          <span>{' '}</span>
           <span>{route.destination}</span>
           <small className="content-container__operator">
             <span>Operated by </span>

@@ -28,7 +28,7 @@ export const updateServices = () => {
 
       superagent
         .get('https://realtime.thetrainline.com/departures/wat')
-        .end(function(err, res) {
+        .end(function (err, res) {
           if (err) {
             dispatch({
               type    : SERVICES_UPDATE,
@@ -44,7 +44,7 @@ export const updateServices = () => {
           }
 
           resolve()
-        });
+        })
     })
   }
 }

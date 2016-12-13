@@ -2,7 +2,6 @@ import superagent from 'superagent'
 import Moment from 'moment'
 import { mapRouteState } from './utils'
 
-
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -44,7 +43,7 @@ export const updateCurrentRoute = () => {
 
       superagent
         .get(`https://realtime.thetrainline.com/callingPattern/${id}/${today}`)
-        .end(function(err, res) {
+        .end(function (err, res) {
           if (err) {
             dispatch({
               type    : ROUTE_UPDATE,
@@ -60,7 +59,7 @@ export const updateCurrentRoute = () => {
           }
 
           resolve()
-        });
+        })
     })
   }
 }

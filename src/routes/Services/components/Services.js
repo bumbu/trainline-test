@@ -3,17 +3,20 @@ import React, { Component } from 'react'
 import Service from './Service'
 
 export class Services extends Component {
-  static propTypes = {}
+  static propTypes = {
+    updateServices: React.PropTypes.func.isRequired,
+    services: React.PropTypes.array.isRequired,
+  }
 
   updateTimerID = null
 
   componentDidMount () {
     // Start timer
     this.checkForUpdates()
-    this.updateTimerID = setInterval(()=> this.checkForUpdates(), 10000)
+    this.updateTimerID = setInterval(() => this.checkForUpdates(), 10000)
   }
 
-  checkForUpdates() {
+  checkForUpdates () {
     if (this.props.updateServices) {
       this.props.updateServices()
     }

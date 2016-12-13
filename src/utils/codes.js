@@ -4,7 +4,7 @@ const operatorCodes = {
   SW: 'South West Trains'
 }
 
-function codeToText(code, codes) {
+function codeToText (code, codes) {
   if (code in codes) {
     return codes[code]
   } else {

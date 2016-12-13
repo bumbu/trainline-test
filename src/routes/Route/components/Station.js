@@ -23,4 +23,8 @@ export const Station = (props) => {
   )
 }
 
+Station.propTypes = {
+  item : React.PropTypes.object.isRequired
+}
+
 export default Station
