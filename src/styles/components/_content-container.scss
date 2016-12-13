@@ -41,6 +41,7 @@
     position: absolute;
     right: 15px;
     text-align: center;
+    text-decoration: none;
     top: 15px;
     transition: background-color .2s linear;
     width: 32px;
@@ -49,6 +50,7 @@
     &:focus {
       border-color: $color-text-faded;
       color: $color-text-faded;
+      text-decoration: none;
     }
   }
 }

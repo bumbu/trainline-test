@@ -3,10 +3,11 @@ import { Link } from 'react-router'
 
 export const Service = (props) => {
   const { item } = props
+  const url = '/route/' + item.key
 
   return (
   <li className="service__item">
-    <Link to="/route/123" className="service__link">
+    <Link to={url} className="service__link">
       <div className="service__station" >
         <span className="service__time" >{item.due}</span>
         <span className="service__destination" >{item.destination}</span>
