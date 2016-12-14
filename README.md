@@ -26,7 +26,6 @@ Based on [React Redux Starter Kit](https://github.com/davezuko/react-redux-start
 ### TODO 
   * Add transitions
   * Tests
-  * Deploy
 
 ### Extended todo
   * Add functional/E2E testing
