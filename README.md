@@ -22,12 +22,11 @@ Based on [React Redux Starter Kit](https://github.com/davezuko/react-redux-start
   * Make items clickable 
   * Automatically refresh statuses
   * Allow closing one item
-
-### TODO 
-  * Add transitions
   * Tests
 
-### Extended todo
+### Optional todos
+  * Tests for Route component
+  * Add transitions
   * Add functional/E2E testing
   * Add server-side rendering (Universal app)
   * Make it accessible

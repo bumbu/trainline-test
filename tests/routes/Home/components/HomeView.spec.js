@@ -1,7 +1,7 @@
 import React from 'react'
 import { HomeView } from 'routes/Home/components/HomeView'
 import { shallow } from 'enzyme'
-import { IndexLink, Link } from 'react-router'
+import { Link } from 'react-router'
 
 describe('(View) Home', () => {
   let _component

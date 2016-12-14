@@ -7,6 +7,7 @@ export class Services extends Component {
   static propTypes = {
     updateServices: React.PropTypes.func.isRequired,
     services: React.PropTypes.array.isRequired,
+    UPDATE_INTERVAL: React.PropTypes.number,
   }
 
   updateTimerID = null
@@ -14,7 +15,7 @@ export class Services extends Component {
   componentDidMount () {
     // Start timer
     this.checkForUpdates()
-    this.updateTimerID = setInterval(() => this.checkForUpdates(), UPDATE_INTERVAL)
+    this.updateTimerID = setInterval(() => this.checkForUpdates(), this.props.UPDATE_INTERVAL || UPDATE_INTERVAL)
   }
 
   checkForUpdates () {

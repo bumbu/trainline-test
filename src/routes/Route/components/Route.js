@@ -8,6 +8,7 @@ export class Route extends Component {
   static propTypes = {
     updateCurrentRoute: React.PropTypes.func.isRequired,
     route: React.PropTypes.object.isRequired,
+    UPDATE_INTERVAL: React.PropTypes.number,
   }
 
   updateTimerID = null
@@ -15,7 +16,7 @@ export class Route extends Component {
   componentDidMount () {
     // Start timer
     this.checkForUpdates()
-    this.updateTimerID = setInterval(() => this.checkForUpdates(), UPDATE_INTERVAL)
+    this.updateTimerID = setInterval(() => this.checkForUpdates(), this.props.UPDATE_INTERVAL || UPDATE_INTERVAL)
   }
 
   checkForUpdates () {
