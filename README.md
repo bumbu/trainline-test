@@ -2,7 +2,28 @@
 
 Based on [React Redux Starter Kit](https://github.com/davezuko/react-redux-starter-kit)
 
-## Tasks
+## Task
+
+### Original task
+
+Create a simple two "page" web application using node, react, redux (or another state management library of your choice), to display train services departing from London Waterloo station.
+
+#### Basic requirements:
+Consume our real-time API - https://realtime.thetrainline.com/departures/wat 
+
+List all departing services, like this:
+
+![Routes listing](https://cloud.githubusercontent.com/assets/171178/21190220/08aa48d2-c219-11e6-8b77-0549268a6baf.png)
+
+On click/tap on a service, display calling pattern like this:
+
+![Route details](https://cloud.githubusercontent.com/assets/171178/21190254/1aaefd5c-c219-11e6-90e3-00f8dd8829e8.png)
+
+#### Nice to have:
+
+* Responsive layout
+* Transition between views 
+* Automatic update of train progress
 
 ### Done
   * Add Local Node server
