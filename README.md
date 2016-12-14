@@ -2,12 +2,6 @@
 
 Based on [React Redux Starter Kit](https://github.com/davezuko/react-redux-starter-kit)
 
-## Start-up
-  * `npm install` - to install dependencies
-  * `npm start` - starts local dev server
-  * `npm run build` - builds production ready version
-  * `npm test` - run tests
-
 ## Tasks
 
 ### Done
