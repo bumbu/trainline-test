@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Service from './Service'
+const UPDATE_INTERVAL = 7000
 
 export class Services extends Component {
   static propTypes = {
@@ -13,7 +14,7 @@ export class Services extends Component {
   componentDidMount () {
     // Start timer
     this.checkForUpdates()
-    this.updateTimerID = setInterval(() => this.checkForUpdates(), 10000)
+    this.updateTimerID = setInterval(() => this.checkForUpdates(), UPDATE_INTERVAL)
   }
 
   checkForUpdates () {

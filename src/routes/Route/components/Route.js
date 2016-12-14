@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import Station from './Station'
 
+const UPDATE_INTERVAL = 7000
+
 export class Route extends Component {
   static propTypes = {
     updateCurrentRoute: React.PropTypes.func.isRequired,
@@ -13,7 +15,7 @@ export class Route extends Component {
   componentDidMount () {
     // Start timer
     this.checkForUpdates()
-    this.updateTimerID = setInterval(() => this.checkForUpdates(), 10000)
+    this.updateTimerID = setInterval(() => this.checkForUpdates(), UPDATE_INTERVAL)
   }
 
   checkForUpdates () {
