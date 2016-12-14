@@ -4,6 +4,7 @@ import {
   default as servicesReducer
 } from 'routes/Services/modules/services'
 
+const Utils = require('routes/Services/modules/utils')
 const superagent = require('superagent')
 const mock = require('superagent-mocker')(superagent)
 
@@ -39,7 +40,6 @@ describe('(Redux Module) Services', () => {
         services : servicesReducer(undefined, {})
       }
       _dispatchSpy = sinon.spy((action) => {
-        console.log(action)
         _globalState = {
           ..._globalState,
           services : servicesReducer(_globalState.services, action)
@@ -64,58 +64,41 @@ describe('(Redux Module) Services', () => {
 
         return {
           body: {
-            services: [{
-              serviceIdentifier: 'W1',
-              serviceOperator: 'SW',
-              callingPatternUrl: 'https://someurl',
-              scheduledInfo: {
-                scheduledTime: '2016-12-20T10:00:00+00:00'
-              }
-            }]
+            services: [{key: 1}, {key: 2}]
           }
         }
       })
+
+      sinon.stub(Utils, 'mapServicesState', (state) => state);
 
       return updateServices()(_dispatchSpy, _getStateSpy)
         .then(() => {
           // Should dispatch a start and success status
           _dispatchSpy.should.have.been.calledTwice
+          // Restore stub
+          Utils.mapServicesState.restore();
         })
     })
   })
 
   describe('(Action Handler) SERVICES_UPDATE', () => {
-    it('Should update the state by the action payload\'s "value" property.', () => {
+    it('Should update the state by the action payload\'s "value" property.', function () {
       let state = servicesReducer(undefined, {})
       expect(state).to.deep.equal([])
 
-      const payload = [{
-        serviceIdentifier: 'W1',
-        serviceOperator: 'SW',
-        callingPatternUrl: 'https://someurl',
-        scheduledInfo: {
-          scheduledTime: '2016-12-20T10:00:00+00:00'
-        }
-      }]
+      const payload = [{key: 1}, {key: 2}]
       const action = {
         type: SERVICES_UPDATE,
         payload,
         status: 'success',
       }
+
+      // Stub the mapServicesState
+      sinon.stub(Utils, 'mapServicesState', (state) => state);
       state = servicesReducer(state, action)
+      Utils.mapServicesState.restore();
 
-      const expectedState = [{
-        destination: 'unknown',
-        due: '10:00',
-        expected: null,
-        notOnTime: false,
-        key: 'W1',
-        operator: 'South West Trains',
-        platform: null,
-        routeUrl: 'https://someurl',
-      }]
-
-      expect(state).to.deep.equal(expectedState)
+      expect(state).to.deep.equal(payload)
     })
   })
 })
