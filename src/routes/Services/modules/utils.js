@@ -27,7 +27,7 @@ export const mapServicesState = (state) => {
  * @param  {object} item
  * @return {string|null}
  */
-function getPlatform(item) {
+function getPlatform (item) {
   let platform = null
   if (item.realTimeUpdatesInfo && item.realTimeUpdatesInfo.realTimeServiceInfo &&
       item.realTimeUpdatesInfo.realTimeServiceInfo.realTimePlatform
@@ -43,7 +43,7 @@ function getPlatform(item) {
  * @param  {object} item
  * @return {string}
  */
-function getDestinationName(item) {
+function getDestinationName (item) {
   let destination = 'unknown'
   if (item.destinationList && item.destinationList.length && item.destinationList[0].crs) {
     destination = item.destinationList[0].crs
@@ -57,7 +57,7 @@ function getDestinationName(item) {
  * @param  {object} item
  * @return {{expected: string|null, notOnTime: boolean}}
  */
-function getExpectedTime(item) {
+function getExpectedTime (item) {
   let expected = null
   let notOnTime = false
   if (item.realTimeUpdatesInfo &&

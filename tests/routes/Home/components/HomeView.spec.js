@@ -12,7 +12,7 @@ describe('(View) Home', () => {
 
   it('Should render a Link to Services component', () => {
     expect(_component.contains(
-      <Link to='/services'>
+      <Link to="/services">
         Go to Services listing
       </Link>
     )).to.be.true

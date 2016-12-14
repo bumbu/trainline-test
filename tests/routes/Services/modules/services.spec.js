@@ -59,7 +59,7 @@ describe('(Redux Module) Services', () => {
     })
 
     it('Should return a promise from that thunk that gets fulfilled.', () => {
-      mock.get('https://realtime.thetrainline.com/departures/wat', function(req) {
+      mock.get('https://realtime.thetrainline.com/departures/wat', function (req) {
         mock.clearRoutes()
 
         return {
@@ -69,14 +69,14 @@ describe('(Redux Module) Services', () => {
         }
       })
 
-      sinon.stub(Utils, 'mapServicesState', (state) => state);
+      sinon.stub(Utils, 'mapServicesState', (state) => state)
 
       return updateServices()(_dispatchSpy, _getStateSpy)
         .then(() => {
           // Should dispatch a start and success status
           _dispatchSpy.should.have.been.calledTwice
           // Restore stub
-          Utils.mapServicesState.restore();
+          Utils.mapServicesState.restore()
         })
     })
   })
@@ -94,9 +94,9 @@ describe('(Redux Module) Services', () => {
       }
 
       // Stub the mapServicesState
-      sinon.stub(Utils, 'mapServicesState', (state) => state);
+      sinon.stub(Utils, 'mapServicesState', (state) => state)
       state = servicesReducer(state, action)
-      Utils.mapServicesState.restore();
+      Utils.mapServicesState.restore()
 
       expect(state).to.deep.equal(payload)
     })

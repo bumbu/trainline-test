@@ -1,14 +1,11 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
 import { Service } from 'routes/Services/components/Service'
 import { shallow } from 'enzyme'
-import { Link } from 'react-router'
 
 describe('(Component) Service', () => {
-  let _props, _spies, _wrapper
+  let _props, _wrapper
 
   beforeEach(() => {
-    _spies = {}
     _props = {
       item : {
         key: 1,

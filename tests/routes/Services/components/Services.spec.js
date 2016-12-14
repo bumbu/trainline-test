@@ -1,8 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
-import { Services, Service } from 'routes/Services/components/Services'
+import { Services } from 'routes/Services/components/Services'
 import { shallow, mount } from 'enzyme'
-import { Link } from 'react-router'
 
 describe('(Component) Services', () => {
   let _props, _spies, _wrapper
@@ -11,9 +10,9 @@ describe('(Component) Services', () => {
     _spies = {}
     _props = {
       UPDATE_INTERVAL: 200,
-      services : [{key: 1,}, {key: 2}],
+      services : [{key: 1}, {key: 2}],
       ...bindActionCreators({
-        updateServices : (_spies.updateServices = sinon.spy()),
+        updateServices : (_spies.updateServices = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
   })
@@ -38,7 +37,7 @@ describe('(Component) Services', () => {
     }, 300)
   })
 
-  it('Should not call updateServices after update interval if unmounted before', () => {
+  it('Should not call updateServices after update interval if unmounted before', (done) => {
     _wrapper = mount(<Services {..._props} />)
     _wrapper.unmount()
 

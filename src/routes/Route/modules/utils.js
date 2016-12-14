@@ -58,7 +58,7 @@ export const mapRouteState = (state) => {
  * @param  {object} item
  * @return {string}
  */
-function getItemStatus(item) {
+function getItemStatus (item) {
   let status = 'On time'
 
   if (ifDepartedNotOnSchedule(item)) {
@@ -80,7 +80,7 @@ function getItemStatus(item) {
  * @param  {object} item
  * @return {boolean}
  */
-function ifDepartedNotOnSchedule(item) {
+function ifDepartedNotOnSchedule (item) {
   return item.departure.realTime &&
     item.departure.scheduled &&
     item.departure.realTime.realTimeServiceInfo.realTime &&
@@ -93,7 +93,7 @@ function ifDepartedNotOnSchedule(item) {
  * @param  {object} item
  * @return {boolean}
  */
-function ifExpectedNotOnSchedule(item) {
+function ifExpectedNotOnSchedule (item) {
   return item.arrival.realTime &&
     item.arrival.scheduled &&
     item.arrival.realTime.realTimeServiceInfo.realTime &&
@@ -106,7 +106,7 @@ function ifExpectedNotOnSchedule(item) {
  * @param  {object} item
  * @return {boolean}
  */
-function ifDelayed(item) {
+function ifDelayed (item) {
   return (item.departure.realTime && item.departure.realTime.delayReason) ||
     (item.arrival.realTime && item.arrival.realTime.delayReason)
 }
